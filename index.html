@@ -353,6 +353,15 @@
       color: #ffffff;
       cursor: default;
     }
+    .price-table .interactive-code,
+    .price-table .interactive-price {
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+    .price-table .interactive-code:hover,
+    .price-table .interactive-price:hover {
+      background-color: rgba(255, 111, 97, 0.3);
+    }
     .price-note {
       font-size: 1em;
       color: #f0f0f0;
@@ -410,6 +419,29 @@
       min-width: 44px;
       min-height: 44px;
       touch-action: manipulation;
+    }
+    .code-price-overlay {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(0, 0, 0, 0.8);
+      color: #ffffff;
+      padding: 20px;
+      border: 2px solid #ff6f61;
+      border-radius: 10px;
+      font-size: 2em;
+      z-index: 10001;
+      text-align: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+      max-width: 90%;
+      word-break: break-all;
+    }
+    .code-price-overlay.show {
+      opacity: 1;
+      visibility: visible;
     }
     @media (min-width: 768px) {
       .container {
@@ -483,6 +515,9 @@
       }
       .price-note {
         font-size: 1.1em;
+      }
+      .code-price-overlay {
+        font-size: 2em;
       }
     }
     @media (max-width: 600px) {
@@ -610,6 +645,10 @@
       .price-table td[data-label="Preço"] {
         background: #2c2c2c;
       }
+      .code-price-overlay {
+        font-size: 1.5em;
+        padding: 15px;
+      }
     }
   </style>
 </head>
@@ -683,7 +722,7 @@
       </div>
     </div>
     <div class="tab-content" role="main" aria-label="Tabela de preços">
-      <p class="price-note">Consulte os códigos, produtos e preços dos nossos itens artesanais para facilitar sua compra. Todos os códigos iniciam com 7898929035, seguidos pelos três dígitos listados abaixo. Exemplo: Código completo para Biscoito Champagne 200g: 7898929035141.</p>
+      <p class="price-note">Consulte os códigos, produtos e preços dos nossos itens artesanais para facilitar sua compra. Todos os códigos iniciam com 7898929035, seguidos pelos três dígitos listados abaixo. Exemplo: Código completo para Biscoito Champagne 200g: <span style="color: #1e90ff;">7898929035141</span>.</p>
       <table class="price-table" role="grid" aria-label="Tabela de preços dos produtos artesanais da Fábrica Vita Gula">
         <caption>Tabela de preços dos produtos artesanais da Fábrica Vita Gula</caption>
         <thead>
@@ -695,149 +734,149 @@
         </thead>
         <tbody>
           <tr>
-            <td data-label="Código">141</td>
+            <td data-label="Código" class="interactive-code" data-full-code="7898929035141" tabindex="0" aria-label="Mostrar código completo 7898929035141">141</td>
             <td data-label="Produto">Biscoito Champagne 200g</td>
-            <td data-label="Preço">R$ 3,75</td>
+            <td data-label="Preço" class="interactive-price" tabindex="0" aria-label="Mostrar preço ampliado R$ 3,75">R$ 3,75</td>
           </tr>
           <tr>
-            <td data-label="Código">028</td>
+            <td data-label="Código" class="interactive-code" data-full-code="7898929035028" tabindex="0" aria-label="Mostrar código completo 7898929035028">028</td>
             <td data-label="Produto">Biscoito Champagne 250g</td>
-            <td data-label="Preço">R$ 4,10</td>
+            <td data-label="Preço" class="interactive-price" tabindex="0" aria-label="Mostrar preço ampliado R$ 4,10">R$ 4,10</td>
           </tr>
           <tr>
-            <td data-label="Código">011</td>
+            <td data-label="Código" class="interactive-code" data-full-code="7898929035011" tabindex="0" aria-label="Mostrar código completo 7898929035011">011</td>
             <td data-label="Produto">Biscoito Cappuccino 250g</td>
-            <td data-label="Preço">R$ 4,50</td>
+            <td data-label="Preço" class="interactive-price" tabindex="0" aria-label="Mostrar preço ampliado R$ 4,50">R$ 4,50</td>
           </tr>
           <tr>
-            <td data-label="Código">097</td>
+            <td data-label="Código" class="interactive-code" data-full-code="7898929035097" tabindex="0" aria-label="Mostrar código completo 7898929035097">097</td>
             <td data-label="Produto">Biscoito Bola de Ouro 250g</td>
-            <td data-label="Preço">R$ 4,10</td>
+            <td data-label="Preço" class="interactive-price" tabindex="0" aria-label="Mostrar preço ampliado R$ 4,10">R$ 4,10</td>
           </tr>
           <tr>
-            <td data-label="Código">363</td>
+            <td data-label="Código" class="interactive-code" data-full-code="7898929035363" tabindex="0" aria-label="Mostrar código completo 7898929035363">363</td>
             <td data-label="Produto">Biscoito Sete Capas Doce 210g</td>
-            <td data-label="Preço">R$ 4,50</td>
+            <td data-label="Preço" class="interactive-price" tabindex="0" aria-label="Mostrar preço ampliado R$ 4,50">R$ 4,50</td>
           </tr>
           <tr>
-            <td data-label="Código">110</td>
+            <td data-label="Código" class="interactive-code" data-full-code="7898929035110" tabindex="0" aria-label="Mostrar código completo 7898929035110">110</td>
             <td data-label="Produto">Biscoito Sete Capas 250g</td>
-            <td data-label="Preço">R$ 4,50</td>
+            <td data-label="Preço" class="interactive-price" tabindex="0" aria-label="Mostrar preço ampliado R$ 4,50">R$ 4,50</td>
           </tr>
           <tr>
-            <td data-label="Código">073</td>
+            <td data-label="Código" class="interactive-code" data-full-code="7898929035073" tabindex="0" aria-label="Mostrar código completo 7898929035073">073</td>
             <td data-label="Produto">Biscoito Sequilho 250g</td>
-            <td data-label="Preço">R$ 4,10</td>
+            <td data-label="Preço" class="interactive-price" tabindex="0" aria-label="Mostrar preço ampliado R$ 4,10">R$ 4,10</td>
           </tr>
           <tr>
-            <td data-label="Código">295</td>
+            <td data-label="Código" class="interactive-code" data-full-code="7898929035295" tabindex="0" aria-label="Mostrar código completo 7898929035295">295</td>
             <td data-label="Produto">Biscoito Delícia 250g</td>
-            <td data-label="Preço">R$ 4,10</td>
+            <td data-label="Preço" class="interactive-price" tabindex="0" aria-label="Mostrar preço ampliado R$ 4,10">R$ 4,10</td>
           </tr>
           <tr>
-            <td data-label="Código">431</td>
+            <td data-label="Código" class="interactive-code" data-full-code="7898929035431" tabindex="0" aria-label="Mostrar código completo 7898929035431">431</td>
             <td data-label="Produto">Leite Condensado com Coco 120g</td>
-            <td data-label="Preço">R$ 4,00</td>
+            <td data-label="Preço" class="interactive-price" tabindex="0" aria-label="Mostrar preço ampliado R$ 4,00">R$ 4,00</td>
           </tr>
           <tr>
-            <td data-label="Código">424</td>
+            <td data-label="Código" class="interactive-code" data-full-code="7898929035424" tabindex="0" aria-label="Mostrar código completo 7898929035424">424</td>
             <td data-label="Produto">Biscoito de Goiaba 120g</td>
-            <td data-label="Preço">R$ 4,00</td>
+            <td data-label="Preço" class="interactive-price" tabindex="0" aria-label="Mostrar preço ampliado R$ 4,00">R$ 4,00</td>
           </tr>
           <tr>
-            <td data-label="Código">394</td>
+            <td data-label="Código" class="interactive-code" data-full-code="7898929035394" tabindex="0" aria-label="Mostrar código completo 7898929035394">394</td>
             <td data-label="Produto">Biscoito Polvilho 80g</td>
-            <td data-label="Preço">R$ 3,00</td>
+            <td data-label="Preço" class="interactive-price" tabindex="0" aria-label="Mostrar preço ampliado R$ 3,00">R$ 3,00</td>
           </tr>
           <tr>
-            <td data-label="Código">042</td>
+            <td data-label="Código" class="interactive-code" data-full-code="7898929035042" tabindex="0" aria-label="Mostrar código completo 7898929035042">042</td>
             <td data-label="Produto">Pão Hambúrguer 450g</td>
-            <td data-label="Preço">R$ 5,50</td>
+            <td data-label="Preço" class="interactive-price" tabindex="0" aria-label="Mostrar preço ampliado R$ 5,50">R$ 5,50</td>
           </tr>
           <tr>
-            <td data-label="Código">035</td>
+            <td data-label="Código" class="interactive-code" data-full-code="7898929035035" tabindex="0" aria-label="Mostrar código completo 7898929035035">035</td>
             <td data-label="Produto">Pão Hot Dog 400g</td>
-            <td data-label="Preço">R$ 5,50</td>
+            <td data-label="Preço" class="interactive-price" tabindex="0" aria-label="Mostrar preço ampliado R$ 5,50">R$ 5,50</td>
           </tr>
           <tr>
-            <td data-label="Código">080</td>
+            <td data-label="Código" class="interactive-code" data-full-code="7898929035080" tabindex="0" aria-label="Mostrar código completo 7898929035080">080</td>
             <td data-label="Produto">Pão de Forma 450g</td>
-            <td data-label="Preço">R$ 5,50</td>
+            <td data-label="Preço" class="interactive-price" tabindex="0" aria-label="Mostrar preço ampliado R$ 5,50">R$ 5,50</td>
           </tr>
           <tr>
-            <td data-label="Código">103</td>
+            <td data-label="Código" class="interactive-code" data-full-code="7898929035103" tabindex="0" aria-label="Mostrar código completo 7898929035103">103</td>
             <td data-label="Produto">Pão de Leite 400g</td>
-            <td data-label="Preço">R$ 5,50</td>
+            <td data-label="Preço" class="interactive-price" tabindex="0" aria-label="Mostrar preço ampliado R$ 5,50">R$ 5,50</td>
           </tr>
           <tr>
-            <td data-label="Código">219</td>
+            <td data-label="Código" class="interactive-code" data-full-code="7898929035219" tabindex="0" aria-label="Mostrar código completo 7898929035219">219</td>
             <td data-label="Produto">Pão de Forma Integral 450g</td>
-            <td data-label="Preço">R$ 6,50</td>
+            <td data-label="Preço" class="interactive-price" tabindex="0" aria-label="Mostrar preço ampliado R$ 6,50">R$ 6,50</td>
           </tr>
           <tr>
-            <td data-label="Código">196</td>
+            <td data-label="Código" class="interactive-code" data-full-code="7898929035196" tabindex="0" aria-label="Mostrar código completo 7898929035196">196</td>
             <td data-label="Produto">Pão Hamburgão 650g</td>
-            <td data-label="Preço">R$ 7,50</td>
+            <td data-label="Preço" class="interactive-price" tabindex="0" aria-label="Mostrar preço ampliado R$ 7,50">R$ 7,50</td>
           </tr>
           <tr>
-            <td data-label="Código">288</td>
+            <td data-label="Código" class="interactive-code" data-full-code="7898929035288" tabindex="0" aria-label="Mostrar código completo 7898929035288">288</td>
             <td data-label="Produto">Pão Pic Nic 450g</td>
-            <td data-label="Preço">R$ 7,20</td>
+            <td data-label="Preço" class="interactive-price" tabindex="0" aria-label="Mostrar preço ampliado R$ 7,20">R$ 7,20</td>
           </tr>
           <tr>
-            <td data-label="Código">301</td>
+            <td data-label="Código" class="interactive-code" data-full-code="7898929035301" tabindex="0" aria-label="Mostrar código completo 7898929035301">301</td>
             <td data-label="Produto">Pão Pic Nic Integral 450g</td>
-            <td data-label="Preço">R$ 7,70</td>
+            <td data-label="Preço" class="interactive-price" tabindex="0" aria-label="Mostrar preço ampliado R$ 7,70">R$ 7,70</td>
           </tr>
           <tr>
-            <td data-label="Código">349</td>
+            <td data-label="Código" class="interactive-code" data-full-code="7898929035349" tabindex="0" aria-label="Mostrar código completo 7898929035349">349</td>
             <td data-label="Produto">Pão Hambúrguer Brioche 285g</td>
-            <td data-label="Preço">R$ 5,00</td>
+            <td data-label="Preço" class="interactive-price" tabindex="0" aria-label="Mostrar preço ampliado R$ 5,00">R$ 5,00</td>
           </tr>
           <tr>
-            <td data-label="Código">356</td>
+            <td data-label="Código" class="interactive-code" data-full-code="7898929035356" tabindex="0" aria-label="Mostrar código completo 7898929035356">356</td>
             <td data-label="Produto">Pão Mini Hambúrguer Brioche 220g</td>
-            <td data-label="Preço">R$ 5,00</td>
+            <td data-label="Preço" class="interactive-price" tabindex="0" aria-label="Mostrar preço ampliado R$ 5,00">R$ 5,00</td>
           </tr>
           <tr>
-            <td data-label="Código">370</td>
+            <td data-label="Código" class="interactive-code" data-full-code="7898929035370" tabindex="0" aria-label="Mostrar código completo 7898929035370">370</td>
             <td data-label="Produto">Pão Briochinho 340g</td>
-            <td data-label="Preço">R$ 5,00</td>
+            <td data-label="Preço" class="interactive-price" tabindex="0" aria-label="Mostrar preço ampliado R$ 5,00">R$ 5,00</td>
           </tr>
           <tr>
-            <td data-label="Código">387</td>
+            <td data-label="Código" class="interactive-code" data-full-code="7898929035387" tabindex="0" aria-label="Mostrar código completo 7898929035387">387</td>
             <td data-label="Produto">Pão de Forma Brioche 330g</td>
-            <td data-label="Preço">R$ 5,50</td>
+            <td data-label="Preço" class="interactive-price" tabindex="0" aria-label="Mostrar preço ampliado R$ 5,50">R$ 5,50</td>
           </tr>
           <tr>
-            <td data-label="Código">400</td>
+            <td data-label="Código" class="interactive-code" data-full-code="7898929035400" tabindex="0" aria-label="Mostrar código completo 7898929035400">400</td>
             <td data-label="Produto">Pão Árabe 400g</td>
-            <td data-label="Preço">R$ 5,50</td>
+            <td data-label="Preço" class="interactive-price" tabindex="0" aria-label="Mostrar preço ampliado R$ 5,50">R$ 5,50</td>
           </tr>
           <tr>
-            <td data-label="Código">202</td>
+            <td data-label="Código" class="interactive-code" data-full-code="7898929035202" tabindex="0" aria-label="Mostrar código completo 7898929035202">202</td>
             <td data-label="Produto">Farinha de Rosca 500g</td>
-            <td data-label="Preço">R$ 10,00</td>
+            <td data-label="Preço" class="interactive-price" tabindex="0" aria-label="Mostrar preço ampliado R$ 10,00">R$ 10,00</td>
           </tr>
           <tr>
-            <td data-label="Código">264</td>
+            <td data-label="Código" class="interactive-code" data-full-code="7898929035264" tabindex="0" aria-label="Mostrar código completo 7898929035264">264</td>
             <td data-label="Produto">Pizza 350g</td>
-            <td data-label="Preço">R$ 7,00</td>
+            <td data-label="Preço" class="interactive-price" tabindex="0" aria-label="Mostrar preço ampliado R$ 7,00">R$ 7,00</td>
           </tr>
           <tr>
-            <td data-label="Código">127</td>
+            <td data-label="Código" class="interactive-code" data-full-code="7898929035127" tabindex="0" aria-label="Mostrar código completo 7898929035127">127</td>
             <td data-label="Produto">Bolinho 330g</td>
-            <td data-label="Preço">R$ 6,00</td>
+            <td data-label="Preço" class="interactive-price" tabindex="0" aria-label="Mostrar preço ampliado R$ 6,00">R$ 6,00</td>
           </tr>
           <tr>
-            <td data-label="Código">332</td>
+            <td data-label="Código" class="interactive-code" data-full-code="7898929035332" tabindex="0" aria-label="Mostrar código completo 7898929035332">332</td>
             <td data-label="Produto">Bolo Inglês 360g</td>
-            <td data-label="Preço">R$ 6,00</td>
+            <td data-label="Preço" class="interactive-price" tabindex="0" aria-label="Mostrar preço ampliado R$ 6,00">R$ 6,00</td>
           </tr>
           <tr>
-            <td data-label="Código">325</td>
+            <td data-label="Código" class="interactive-code" data-full-code="7898929035325" tabindex="0" aria-label="Mostrar código completo 7898929035325">325</td>
             <td data-label="Produto">Bolo Sabor Fofo 500g</td>
-            <td data-label="Preço">R$ 8,00</td>
+            <td data-label="Preço" class="interactive-price" tabindex="0" aria-label="Mostrar preço ampliado R$ 8,00">R$ 8,00</td>
           </tr>
         </tbody>
       </table>
@@ -863,6 +902,8 @@
     <button onclick="hideMegaphoneMessage()" aria-label="Fechar mensagem promocional">Fechar</button>
   </div>
 
+  <div id="code-price-overlay" class="code-price-overlay" role="alert" aria-live="polite" tabindex="0"></div>
+
   <script>
     let volumeLevel = 0;
     const audio = document.getElementById('background-audio');
@@ -879,6 +920,79 @@
       "https://raw.githubusercontent.com/gvitagula/site/refs/heads/main/aud/musica3.mp3"
     ];
     let currentTrackIndex = 0;
+
+    // Overlay handling
+    const overlay = document.getElementById('code-price-overlay');
+    let overlayTimeout = null;
+    let isOverlayVisible = false;
+
+    function showOverlay(content) {
+      clearTimeout(overlayTimeout);
+      overlay.textContent = content;
+      overlay.classList.add('show');
+      isOverlayVisible = true;
+      overlay.focus();
+    }
+
+    function hideOverlay() {
+      clearTimeout(overlayTimeout);
+      overlay.classList.remove('show');
+      overlay.textContent = '';
+      isOverlayVisible = false;
+    }
+
+    function isMobile() {
+      return window.innerWidth <= 600;
+    }
+
+    function handleCodeInteraction(event) {
+      const td = event.target;
+      const fullCode = td.dataset.fullCode;
+      if (isMobile()) {
+        playClickSound();
+        if (isOverlayVisible && overlay.textContent === fullCode) {
+          hideOverlay();
+        } else {
+          showOverlay(fullCode);
+          overlayTimeout = setTimeout(hideOverlay, 3000);
+        }
+      } else {
+        if (event.type === 'mouseover') {
+          playHoverSound();
+          showOverlay(fullCode);
+        } else if (event.type === 'mouseleave') {
+          hideOverlay();
+        }
+      }
+    }
+
+    function handlePriceInteraction(event) {
+      const td = event.target;
+      const price = td.textContent;
+      if (isMobile()) {
+        playClickSound();
+        if (isOverlayVisible && overlay.textContent === price) {
+          hideOverlay();
+        } else {
+          showOverlay(price);
+          overlayTimeout = setTimeout(hideOverlay, 3000);
+        }
+      } else {
+        if (event.type === 'mouseover') {
+          playHoverSound();
+          showOverlay(price);
+        } else if (event.type === 'mouseleave') {
+          hideOverlay();
+        }
+      }
+    }
+
+    function handleKeydown(event, handler) {
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        handler(event);
+      }
+    }
 
     function handleFirstClick() {
       if (!hasClicked) {
@@ -1052,6 +1166,28 @@
       document.getElementById('megaphone-message').style.display = 'block';
       setTimeout(hideMegaphoneMessage, 5000);
       setActiveTab('precos');
+
+      // Initialize interactive code and price cells
+      const codeCells = document.querySelectorAll('.interactive-code');
+      const priceCells = document.querySelectorAll('.interactive-price');
+
+      codeCells.forEach(cell => {
+        if (!isMobile()) {
+          cell.addEventListener('mouseover', handleCodeInteraction);
+          cell.addEventListener('mouseleave', handleCodeInteraction);
+        }
+        cell.addEventListener('click', handleCodeInteraction);
+        cell.addEventListener('keydown', (e) => handleKeydown(e, handleCodeInteraction));
+      });
+
+      priceCells.forEach(cell => {
+        if (!isMobile()) {
+          cell.addEventListener('mouseover', handlePriceInteraction);
+          cell.addEventListener('mouseleave', handlePriceInteraction);
+        }
+        cell.addEventListener('click', handlePriceInteraction);
+        cell.addEventListener('keydown', (e) => handleKeydown(e, handlePriceInteraction));
+      });
     });
   </script>
 </body>
