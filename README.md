@@ -1,1 +1,1 @@
-# pre-os
+# precos
