@@ -43,14 +43,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fábrica Vita Gula - Preços</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Orbitron:wght@400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Orbitron:wght@400&family=Roboto+Condensed:wght@400;700&family=Arial:wght@400;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --primary-color: #ff6f61;
+      --secondary-color: #1e90ff;
+      --background-dark: #2c2c2c;
+      --text-light: #f0f0f0;
+      --text-dark: #333;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+      --transition: all 0.3s ease;
+    }
     body {
       font-family: 'Poppins', sans-serif;
       margin: 0;
       padding: 0;
       background-color: #1a1a1a;
-      color: #f0f0f0;
+      color: var(--text-light);
       display: flex;
       justify-content: center;
       align-items: flex-start;
@@ -60,8 +69,8 @@
     .container {
       width: 100%;
       max-width: 1600px;
-      background-color: #2c2c2c;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      background-color: var(--background-dark);
+      box-shadow: var(--shadow);
       border-radius: 15px;
       overflow: hidden;
       margin: 0 auto;
@@ -72,10 +81,10 @@
       padding-top: 140px;
     }
     .header {
-      background: linear-gradient(135deg, #1e90ff 0%, #00cc99 100%);
+      background: linear-gradient(135deg, var(--secondary-color) 0%, #00cc99 100%);
       color: #ffffff;
       padding: 20px 40px;
-      border-bottom: 5px solid #ff6f61;
+      border-bottom: 5px solid var(--primary-color);
       position: fixed;
       top: 0;
       width: 100%;
@@ -85,7 +94,7 @@
       align-items: center;
       height: 100px;
       z-index: 1001;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      box-shadow: var(--shadow);
     }
     .title-container {
       display: flex;
@@ -123,7 +132,7 @@
       background-color: rgba(255, 255, 255, 0.1);
       padding: 4px;
       border-radius: 6px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      box-shadow: var(--shadow);
       margin-right: 8px;
     }
     .control-buttons {
@@ -155,7 +164,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      color: #1e90ff;
+      color: var(--secondary-color);
       font-size: 0.7em;
     }
     .track-controls {
@@ -173,7 +182,7 @@
       color: #ffffff;
       background-color: rgba(255, 255, 255, 0.1);
       border-radius: 50%;
-      transition: transform 0.2s ease, background-color 0.2s ease;
+      transition: var(--transition);
       touch-action: manipulation;
     }
     .volume-icon:hover {
@@ -200,7 +209,7 @@
     .waveform .bar {
       width: 0.6px;
       height: 100%;
-      background-color: #1e90ff;
+      background-color: var(--secondary-color);
       border-radius: 2px;
       animation: none;
     }
@@ -211,7 +220,7 @@
     .waveform.playing .bar:nth-child(2) { animation-delay: 0.1s; }
     .waveform.playing .bar:nth-child(3) { animation-delay: 0.2s; }
     .waveform.playing .bar:nth-child(4) { animation-delay: 0.3s; }
-    .waveform.playing .bar:nth-child(GeometryNodeTree) { animation-delay: 0.4s; }
+    .waveform.playing .bar:nth-child(5) { animation-delay: 0.4s; }
     .waveform.playing .bar:nth-child(6) { animation-delay: 0.5s; }
     .waveform.playing .bar:nth-child(7) { animation-delay: 0.6s; }
     .waveform.playing .bar:nth-child(8) { animation-delay: 0.7s; }
@@ -230,17 +239,17 @@
       top: 100px;
       width: 100%;
       z-index: 1000;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      box-shadow: var(--shadow);
       box-sizing: border-box;
     }
     .nav-item {
       padding: 6px 10px;
-      background-color: #ff6f61;
+      background-color: var(--primary-color);
       color: #ffffff;
       border-radius: 5px;
       cursor: pointer;
       font-weight: 600;
-      transition: background-color 0.3s ease;
+      transition: var(--transition);
       text-decoration: none;
       font-size: 0.9em;
       min-width: 44px;
@@ -249,11 +258,11 @@
     }
     .nav-item:hover {
       background-color: #ffffff;
-      color: #ff6f61;
+      color: var(--primary-color);
     }
     .nav-item.active {
       background-color: #ffffff;
-      color: #ff6f61;
+      color: var(--primary-color);
     }
     .dropdown {
       position: relative;
@@ -273,7 +282,7 @@
       position: absolute;
       background-color: #3a3a3a;
       min-width: 160px;
-      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+      box-shadow: var(--shadow);
       z-index: 1002;
       top: 100%;
       left: 0;
@@ -292,18 +301,18 @@
       padding: 10px 14px;
       text-align: left;
       cursor: pointer;
-      color: #f0f0f0;
+      color: var(--text-light);
       text-decoration: none;
-      transition: background-color 0.3s ease;
+      transition: var(--transition);
       font-size: 0.9em;
       touch-action: manipulation;
     }
     .dropdown-content a:hover {
-      background-color: #ff6f61;
+      background-color: var(--primary-color);
       color: #ffffff;
     }
     .dropdown-content a.active {
-      background-color: #ff6f61;
+      background-color: var(--primary-color);
       color: #ffffff;
     }
     .tab-content {
@@ -311,7 +320,7 @@
       background-color: #3a3a3a;
       border-radius: 10px;
       margin: 10px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      box-shadow: var(--shadow);
       flex: 1;
       overflow-y: auto;
       box-sizing: border-box;
@@ -323,12 +332,12 @@
       margin: 20px auto;
       border-collapse: collapse;
       font-size: 0.9em;
-      color: #f0f0f0;
-      overflow-x: auto;
+      color: var(--text-light);
+      position: relative;
     }
     .price-table caption {
       font-size: 1em;
-      color: #f0f0f0;
+      color: var(--text-light);
       padding: 10px;
       text-align: left;
     }
@@ -340,9 +349,15 @@
       font-weight: 500;
     }
     .price-table th {
-      background: #ff6f61;
+      background: var(--primary-color);
       color: #ffffff;
       font-weight: 600;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .price-table tbody tr {
+      transition: transform 0.2s ease, background 0.2s ease;
     }
     .price-table tbody tr:nth-child(even) {
       background: #2c2c2c;
@@ -351,22 +366,21 @@
       background: #3a3a3a;
     }
     .price-table tbody tr:hover {
-      background: #ff6f61;
+      background: rgba(255, 111, 97, 0.8);
       color: #ffffff;
-      cursor: default;
+      transform: scale(1.02);
     }
-    .price-table .interactive-code,
-    .price-table .interactive-price {
+    .price-table .interactive-product {
       cursor: pointer;
       transition: background-color 0.2s ease;
+      text-decoration: underline;
     }
-    .price-table .interactive-code:hover,
-    .price-table .interactive-price:hover {
+    .price-table .interactive-product:hover {
       background-color: rgba(255, 111, 97, 0.3);
     }
     .price-note {
       font-size: 1em;
-      color: #f0f0f0;
+      color: var(--text-light);
       margin: 0 auto 15px;
       max-width: 800px;
       text-align: left;
@@ -381,7 +395,7 @@
       max-width: 250px;
       font-family: 'Orbitron', sans-serif;
       color: #00cc99;
-      box-shadow: 0 0 10px rgba(0, 255, 204, 0.3);
+      box-shadow: var(--shadow);
     }
     .visitor-counter span {
       font-size: 1.1em;
@@ -398,22 +412,23 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      background-color: #ff6f61;
+      background-color: var(--primary-color);
       color: #ffffff;
       padding: 15px;
       border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+      box-shadow: var(--shadow);
       z-index: 10000;
       text-align: center;
       font-size: 1em;
       width: 90%;
       max-width: 300px;
+      transition: opacity 0.3s ease;
     }
     .megaphone-message button {
       margin-top: 10px;
       padding: 8px 16px;
       background-color: #ffffff;
-      color: #ff6f61;
+      color: var(--primary-color);
       border: none;
       border-radius: 5px;
       cursor: pointer;
@@ -422,32 +437,71 @@
       min-height: 44px;
       touch-action: manipulation;
     }
-    .code-price-overlay {
+    .product-overlay {
+      display: none;
       position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       background: rgba(0, 0, 0, 0.8);
-      color: #ffffff;
-      padding: 25px;
-      border: 2px solid #ff6f61;
-      border-radius: 10px;
-      font-size: 1.8em;
       z-index: 10001;
-      text-align: center;
+      justify-content: center;
+      align-items: center;
       opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.3s ease, visibility 0.3s ease;
-      max-width: 95%;
-      word-break: break-all;
-      line-height: 1.4;
+      transition: opacity 0.3s ease;
     }
-    .code-price-overlay strong {
-      font-weight: 600;
-    }
-    .code-price-overlay.show {
+    .product-overlay.show {
+      display: flex;
       opacity: 1;
-      visibility: visible;
+    }
+    .product-overlay-content {
+      background: #ffffff;
+      color: var(--text-dark);
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      max-width: 400px;
+      width: 90%;
+      box-shadow: var(--shadow);
+      font-size: 1.1em;
+      transform: scale(0.8);
+      transition: transform 0.3s ease;
+    }
+    .product-overlay.show .product-overlay-content {
+      transform: scale(1);
+    }
+    .product-overlay-content img {
+      max-width: 300px;
+      max-height: 300px;
+      width: auto;
+      height: auto;
+      margin-bottom: 15px;
+      border-radius: 5px;
+    }
+    .product-overlay-content .product-name {
+      font-size: 1.3em;
+      font-weight: 700;
+      margin: 10px 0;
+    }
+    .product-overlay-content .product-code,
+    .product-overlay-content .product-price {
+      font-size: 1em;
+      margin: 5px 0;
+    }
+    .product-overlay-content button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: var(--primary-color);
+      color: #ffffff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1em;
+      min-width: 44px;
+      min-height: 44px;
+      touch-action: manipulation;
     }
     @media (min-width: 768px) {
       .container {
@@ -522,9 +576,6 @@
       .price-note {
         font-size: 1.1em;
       }
-      .code-price-overlay {
-        font-size: 1.8em;
-      }
     }
     @media (max-width: 600px) {
       .container {
@@ -588,17 +639,15 @@
         min-width: 40px;
       }
       .dropdown-content {
-        width: 100%;
-        min-width: 0;
+        min-width: 120px;
         left: 0;
         background-color: #3a3a3a;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        box-shadow: var(--shadow);
         border-radius: 0 0 5px 5px;
       }
       .dropdown-content a {
-        font-size: 0.7em;
-        padding: 6px 10px;
-        text-align: center;
+        font-size: 0.8em;
+        padding: 8px 12px;
       }
       .tab-content {
         padding: 10px;
@@ -610,44 +659,45 @@
         font-size: 0.8em;
       }
       .price-table {
-        font-size: 0.7em;
-        display: table;
+        font-size: 0.8em;
+        display: block;
         overflow-x: auto;
+        white-space: nowrap;
       }
       .price-table th,
       .price-table td {
-        padding: 4px;
+        padding: 8px;
         font-weight: 500;
+        min-width: 100px;
       }
       .price-table th {
-        font-size: 0.75em;
-        display: table-cell;
-      }
-      .price-table thead {
-        display: table-header-group;
-      }
-      .price-table tr {
-        display: table-row;
-      }
-      .price-table td {
-        display: table-cell;
-        text-align: center;
-      }
-      .price-table td:before {
-        display: none;
+        font-size: 0.85em;
       }
       .price-table caption {
-        font-size: 0.8em;
+        font-size: 0.9em;
       }
       .price-note {
-        font-size: 0.8em;
-      }
-      .code-price-overlay {
-        font-size: 1.1em;
-        padding: 20px;
-      }
-      .code-price-overlay .product-name {
         font-size: 0.9em;
+      }
+      .product-overlay-content {
+        padding: 15px;
+        max-width: 280px;
+        font-size: 0.95em;
+      }
+      .product-overlay-content img {
+        max-width: 180px;
+        max-height: 180px;
+      }
+      .product-overlay-content .product-name {
+        font-size: 1.15em;
+      }
+      .product-overlay-content .product-code,
+      .product-overlay-content .product-price {
+        font-size: 0.95em;
+      }
+      .product-overlay-content button {
+        font-size: 0.95em;
+        padding: 8px 16px;
       }
     }
   </style>
@@ -656,7 +706,7 @@
   <div class="container">
     <header class="header" role="banner" aria-label="Cabeçalho da Fábrica Vita Gula">
       <div class="title-container">
-        <h1 style="font-size: 23px;">Fábrica Vita Gula</h1>
+        <h1>Fábrica Vita Gula</h1>
         <p>Sabor, Tradição e Qualidade</p>
         <p>Desde 2001</p>
       </div>
@@ -696,7 +746,7 @@
     </header>
     <div class="nav-menu" role="navigation" aria-label="Menu principal">
       <a class="nav-item" href="https://gvitagula.github.io/site/" onclick="playClickSound()" onmouseover="playHoverSound()" role="tab" aria-selected="false">Página Principal</a>
-      <a class="nav-item" href="https://gvitagula.github.io/site/quemsomos/" onclick="playClickSound()" onmouseover="playHoverSound()" role="tab" aria-selected="false">Quem Somos</a>
+      <a class="nav-item" href="https://gvitagula.github.io/site/quemsomos" onclick="playClickSound()" onmouseover="playHoverSound()" role="tab" aria-selected="false">Quem Somos</a>
       <div class="nav-item dropdown" role="tab" aria-selected="true">
         <span class="dropdown-toggle" onclick="playClickSound(); toggleDropdown(event, 'produtos')" onmouseover="playHoverSound()">Produtos</span>
         <div class="dropdown-content">
@@ -722,161 +772,161 @@
       </div>
     </div>
     <div class="tab-content" role="main" aria-label="Tabela de preços">
-      <p class="price-note">Consulte códigos, produtos e preços. Códigos começam com 7898929035 + 3 dígitos. Ex.: Bisc. Champagne 200g: <span style="color: #1e90ff;">7898929035141</span>.</p>
+      <p class="price-note">Consulte códigos, produtos e preços. Códigos começam com 7898929035 + 3 dígitos. Ex.: Bisc. Champagne 200g: <span style="color: var(--secondary-color);">7898929035141</span>.</p>
       <table class="price-table" role="grid" aria-label="Tabela de preços dos produtos artesanais da Fábrica Vita Gula">
         <caption>Tabela de preços dos produtos artesanais da Fábrica Vita Gula</caption>
         <thead>
           <tr>
-            <th scope="col">Cód.</th>
-            <th scope="col">Prod.</th>
-            <th scope="col">Preço</th>
+            <th scope="col" id="code-header">Cód.</th>
+            <th scope="col" id="product-header">Prod.</th>
+            <th scope="col" id="price-header">Preço</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td data-label="Cód." class="interactive-code" data-full-code="7898929035141" data-product="Bisc. Champagne 200g" tabindex="0" aria-label="Exibir código completo 7898929035141 para Bisc. Champagne 200g em overlay">141</td>
-            <td data-label="Prod.">Bisc. Champagne 200g</td>
-            <td data-label="Preço" class="interactive-price" data-product="Bisc. Champagne 200g" tabindex="0" aria-label="Exibir preço ampliado R$ 3,75 para Bisc. Champagne 200g em overlay">R$ 3,75</td>
+          <tr class="interactive-row" tabindex="0" aria-label="Exibir detalhes para Bisc. Champagne 200g">
+            <td data-label="Cód." data-full-code="7898929035141" aria-describedby="code-header">141</td>
+            <td data-label="Prod." class="interactive-product" data-full-code="7898929035141" data-product="Bisc. Champagne 200g" aria-describedby="product-header" aria-label="Exibir detalhes para Bisc. Champagne 200g">Bisc. Champagne 200g</td>
+            <td data-label="Preço" aria-describedby="price-header">R$ 3,75</td>
           </tr>
-          <tr>
-            <td data-label="Cód." class="interactive-code" data-full-code="7898929035028" data-product="Bisc. Champagne 250g" tabindex="0" aria-label="Exibir código completo 7898929035028 para Bisc. Champagne 250g em overlay">028</td>
-            <td data-label="Prod.">Bisc. Champagne 250g</td>
-            <td data-label="Preço" class="interactive-price" data-product="Bisc. Champagne 250g" tabindex="0" aria-label="Exibir preço ampliado R$ 4,10 para Bisc. Champagne 250g em overlay">R$ 4,10</td>
+          <tr class="interactive-row" tabindex="0" aria-label="Exibir detalhes para Bisc. Champagne 250g">
+            <td data-label="Cód." data-full-code="7898929035028" aria-describedby="code-header">028</td>
+            <td data-label="Prod." class="interactive-product" data-full-code="7898929035028" data-product="Bisc. Champagne 250g" aria-describedby="product-header" aria-label="Exibir detalhes para Bisc. Champagne 250g">Bisc. Champagne 250g</td>
+            <td data-label="Preço" aria-describedby="price-header">R$ 4,10</td>
           </tr>
-          <tr>
-            <td data-label="Cód." class="interactive-code" data-full-code="7898929035011" data-product="Bisc. Cappuccino 250g" tabindex="0" aria-label="Exibir código completo 7898929035011 para Bisc. Cappuccino 250g em overlay">011</td>
-            <td data-label="Prod.">Bisc. Cappuccino 250g</td>
-            <td data-label="Preço" class="interactive-price" data-product="Bisc. Cappuccino 250g" tabindex="0" aria-label="Exibir preço ampliado R$ 4,50 para Bisc. Cappuccino 250g em overlay">R$ 4,50</td>
+          <tr class="interactive-row" tabindex="0" aria-label="Exibir detalhes para Bisc. Cappuccino 250g">
+            <td data-label="Cód." data-full-code="7898929035011" aria-describedby="code-header">011</td>
+            <td data-label="Prod." class="interactive-product" data-full-code="7898929035011" data-product="Bisc. Cappuccino 250g" aria-describedby="product-header" aria-label="Exibir detalhes para Bisc. Cappuccino 250g">Bisc. Cappuccino 250g</td>
+            <td data-label="Preço" aria-describedby="price-header">R$ 4,50</td>
           </tr>
-          <tr>
-            <td data-label="Cód." class="interactive-code" data-full-code="7898929035097" data-product="Bisc. Bola de Ouro 250g" tabindex="0" aria-label="Exibir código completo 7898929035097 para Bisc. Bola de Ouro 250g em overlay">097</td>
-            <td data-label="Prod.">Bisc. Bola de Ouro 250g</td>
-            <td data-label="Preço" class="interactive-price" data-product="Bisc. Bola de Ouro 250g" tabindex="0" aria-label="Exibir preço ampliado R$ 4,10 para Bisc. Bola de Ouro 250g em overlay">R$ 4,10</td>
+          <tr class="interactive-row" tabindex="0" aria-label="Exibir detalhes para Bisc. Bola de Ouro 250g">
+            <td data-label="Cód." data-full-code="7898929035097" aria-describedby="code-header">097</td>
+            <td data-label="Prod." class="interactive-product" data-full-code="7898929035097" data-product="Bisc. Bola de Ouro 250g" aria-describedby="product-header" aria-label="Exibir detalhes para Bisc. Bola de Ouro 250g">Bisc. Bola de Ouro 250g</td>
+            <td data-label="Preço" aria-describedby="price-header">R$ 4,10</td>
           </tr>
-          <tr>
-            <td data-label="Cód." class="interactive-code" data-full-code="7898929035363" data-product="Bisc. Sete Capas Doce 210g" tabindex="0" aria-label="Exibir código completo 7898929035363 para Bisc. Sete Capas Doce 210g em overlay">363</td>
-            <td data-label="Prod.">Bisc. Sete Capas Doce 210g</td>
-            <td data-label="Preço" class="interactive-price" data-product="Bisc. Sete Capas Doce 210g" tabindex="0" aria-label="Exibir preço ampliado R$ 4,50 para Bisc. Sete Capas Doce 210g em overlay">R$ 4,50</td>
+          <tr class="interactive-row" tabindex="0" aria-label="Exibir detalhes para Bisc. Sete Capas Doce 210g">
+            <td data-label="Cód." data-full-code="7898929035363" aria-describedby="code-header">363</td>
+            <td data-label="Prod." class="interactive-product" data-full-code="7898929035363" data-product="Bisc. Sete Capas Doce 210g" aria-describedby="product-header" aria-label="Exibir detalhes para Bisc. Sete Capas Doce 210g">Bisc. Sete Capas Doce 210g</td>
+            <td data-label="Preço" aria-describedby="price-header">R$ 4,50</td>
           </tr>
-          <tr>
-            <td data-label="Cód." class="interactive-code" data-full-code="7898929035110" data-product="Bisc. Sete Capas 250g" tabindex="0" aria-label="Exibir código completo 7898929035110 para Bisc. Sete Capas 250g em overlay">110</td>
-            <td data-label="Prod.">Bisc. Sete Capas 250g</td>
-            <td data-label="Preço" class="interactive-price" data-product="Bisc. Sete Capas 250g" tabindex="0" aria-label="Exibir preço ampliado R$ 4,50 para Bisc. Sete Capas 250g em overlay">R$ 4,50</td>
+          <tr class="interactive-row" tabindex="0" aria-label="Exibir detalhes para Bisc. Sete Capas 250g">
+            <td data-label="Cód." data-full-code="7898929035110" aria-describedby="code-header">110</td>
+            <td data-label="Prod." class="interactive-product" data-full-code="7898929035110" data-product="Bisc. Sete Capas 250g" aria-describedby="product-header" aria-label="Exibir detalhes para Bisc. Sete Capas 250g">Bisc. Sete Capas 250g</td>
+            <td data-label="Preço" aria-describedby="price-header">R$ 4,50</td>
           </tr>
-          <tr>
-            <td data-label="Cód." class="interactive-code" data-full-code="7898929035073" data-product="Bisc. Sequilho 250g" tabindex="0" aria-label="Exibir código completo 7898929035073 para Bisc. Sequilho 250g em overlay">073</td>
-            <td data-label="Prod.">Bisc. Sequilho 250g</td>
-            <td data-label="Preço" class="interactive-price" data-product="Bisc. Sequilho 250g" tabindex="0" aria-label="Exibir preço ampliado R$ 4,10 para Bisc. Sequilho 250g em overlay">R$ 4,10</td>
+          <tr class="interactive-row" tabindex="0" aria-label="Exibir detalhes para Bisc. Sequilho 250g">
+            <td data-label="Cód." data-full-code="7898929035073" aria-describedby="code-header">073</td>
+            <td data-label="Prod." class="interactive-product" data-full-code="7898929035073" data-product="Bisc. Sequilho 250g" aria-describedby="product-header" aria-label="Exibir detalhes para Bisc. Sequilho 250g">Bisc. Sequilho 250g</td>
+            <td data-label="Preço" aria-describedby="price-header">R$ 4,10</td>
           </tr>
-          <tr>
-            <td data-label="Cód." class="interactive-code" data-full-code="7898929035295" data-product="Bisc. Delícia 250g" tabindex="0" aria-label="Exibir código completo 7898929035295 para Bisc. Delícia 250g em overlay">295</td>
-            <td data-label="Prod.">Bisc. Delícia 250g</td>
-            <td data-label="Preço" class="interactive-price" data-product="Bisc. Delícia 250g" tabindex="0" aria-label="Exibir preço ampliado R$ 4,10 para Bisc. Delícia 250g em overlay">R$ 4,10</td>
+          <tr class="interactive-row" tabindex="0" aria-label="Exibir detalhes para Bisc. Delícia 250g">
+            <td data-label="Cód." data-full-code="7898929035295" aria-describedby="code-header">295</td>
+            <td data-label="Prod." class="interactive-product" data-full-code="7898929035295" data-product="Bisc. Delícia 250g" aria-describedby="product-header" aria-label="Exibir detalhes para Bisc. Delícia 250g">Bisc. Delícia 250g</td>
+            <td data-label="Preço" aria-describedby="price-header">R$ 4,10</td>
           </tr>
-          <tr>
-            <td data-label="Cód." class="interactive-code" data-full-code="7898929035431" data-product="Bisc. c/ Coco 120g" tabindex="0" aria-label="Exibir código completo 7898929035431 para Bisc. c/ Coco 120g em overlay">431</td>
-            <td data-label="Prod.">Bisc. c/ Coco 120g</td>
-            <td data-label="Preço" class="interactive-price" data-product="Bisc. c/ Coco 120g" tabindex="0" aria-label="Exibir preço ampliado R$ 4,00 para Bisc. c/ Coco 120g em overlay">R$ 4,00</td>
+          <tr class="interactive-row" tabindex="0" aria-label="Exibir detalhes para Bisc. c/ Coco 120g">
+            <td data-label="Cód." data-full-code="7898929035431" aria-describedby="code-header">431</td>
+            <td data-label="Prod." class="interactive-product" data-full-code="7898929035431" data-product="Bisc. c/ Coco 120g" aria-describedby="product-header" aria-label="Exibir detalhes para Bisc. c/ Coco 120g">Bisc. c/ Coco 120g</td>
+            <td data-label="Preço" aria-describedby="price-header">R$ 4,00</td>
           </tr>
-          <tr>
-            <td data-label="Cód." class="interactive-code" data-full-code="7898929035424" data-product="Bisc. de Goiaba 120g" tabindex="0" aria-label="Exibir código completo 7898929035424 para Bisc. de Goiaba 120g em overlay">424</td>
-            <td data-label="Prod.">Bisc. de Goiaba 120g</td>
-            <td data-label="Preço" class="interactive-price" data-product="Bisc. de Goiaba 120g" tabindex="0" aria-label="Exibir preço ampliado R$ 4,00 para Bisc. de Goiaba 120g em overlay">R$ 4,00</td>
+          <tr class="interactive-row" tabindex="0" aria-label="Exibir detalhes para Bisc. de Goiaba 120g">
+            <td data-label="Cód." data-full-code="7898929035424" aria-describedby="code-header">424</td>
+            <td data-label="Prod." class="interactive-product" data-full-code="7898929035424" data-product="Bisc. de Goiaba 120g" aria-describedby="product-header" aria-label="Exibir detalhes para Bisc. de Goiaba 120g">Bisc. de Goiaba 120g</td>
+            <td data-label="Preço" aria-describedby="price-header">R$ 4,00</td>
           </tr>
-          <tr>
-            <td data-label="Cód." class="interactive-code" data-full-code="7898929035394" data-product="Bisc. Polvilho 80g" tabindex="0" aria-label="Exibir código completo 7898929035394 para Bisc. Polvilho 80g em overlay">394</td>
-            <td data-label="Prod.">Bisc. Polvilho 80g</td>
-            <td data-label="Preço" class="interactive-price" data-product="Bisc. Polvilho 80g" tabindex="0" aria-label="Exibir preço ampliado R$ 3,00 para Bisc. Polvilho 80g em overlay">R$ 3,00</td>
+          <tr class="interactive-row" tabindex="0" aria-label="Exibir detalhes para Bisc. Polvilho 80g">
+            <td data-label="Cód." data-full-code="7898929035394" aria-describedby="code-header">394</td>
+            <td data-label="Prod." class="interactive-product" data-full-code="7898929035394" data-product="Bisc. Polvilho 80g" aria-describedby="product-header" aria-label="Exibir detalhes para Bisc. Polvilho 80g">Bisc. Polvilho 80g</td>
+            <td data-label="Preço" aria-describedby="price-header">R$ 3,00</td>
           </tr>
-          <tr>
-            <td data-label="Cód." class="interactive-code" data-full-code="7898929035042" data-product="Hamb. 450g" tabindex="0" aria-label="Exibir código completo 7898929035042 para Hamb. 450g em overlay">042</td>
-            <td data-label="Prod.">Hamb. 450g</td>
-            <td data-label="Preço" class="interactive-price" data-product="Hamb. 450g" tabindex="0" aria-label="Exibir preço ampliado R$ 5,50 para Hamb. 450g em overlay">R$ 5,50</td>
+          <tr class="interactive-row" tabindex="0" aria-label="Exibir detalhes para Hamb. 450g">
+            <td data-label="Cód." data-full-code="7898929035042" aria-describedby="code-header">042</td>
+            <td data-label="Prod." class="interactive-product" data-full-code="7898929035042" data-product="Hamb. 450g" aria-describedby="product-header" aria-label="Exibir detalhes para Hamb. 450g">Hamb. 450g</td>
+            <td data-label="Preço" aria-describedby="price-header">R$ 5,50</td>
           </tr>
-          <tr>
-            <td data-label="Cód." class="interactive-code" data-full-code="7898929035035" data-product="Hot Dog 400g" tabindex="0" aria-label="Exibir código completo 7898929035035 para Hot Dog 400g em overlay">035</td>
-            <td data-label="Prod.">Hot Dog 400g</td>
-            <td data-label="Preço" class="interactive-price" data-product="Hot Dog 400g" tabindex="0" aria-label="Exibir preço ampliado R$ 5,50 para Hot Dog 400g em overlay">R$ 5,50</td>
+          <tr class="interactive-row" tabindex="0" aria-label="Exibir detalhes para Hot Dog 400g">
+            <td data-label="Cód." data-full-code="7898929035035" aria-describedby="code-header">035</td>
+            <td data-label="Prod." class="interactive-product" data-full-code="7898929035035" data-product="Hot Dog 400g" aria-describedby="product-header" aria-label="Exibir detalhes para Hot Dog 400g">Hot Dog 400g</td>
+            <td data-label="Preço" aria-describedby="price-header">R$ 5,50</td>
           </tr>
-          <tr>
-            <td data-label="Cód." class="interactive-code" data-full-code="7898929035080" data-product="Forma 450g" tabindex="0" aria-label="Exibir código completo 7898929035080 para Forma 450g em overlay">080</td>
-            <td data-label="Prod.">Forma 450g</td>
-            <td data-label="Preço" class="interactive-price" data-product="Forma 450g" tabindex="0" aria-label="Exibir preço ampliado R$ 5,50 para Forma 450g em overlay">R$ 5,50</td>
+          <tr class="interactive-row" tabindex="0" aria-label="Exibir detalhes para Forma 450g">
+            <td data-label="Cód." data-full-code="7898929035080" aria-describedby="code-header">080</td>
+            <td data-label="Prod." class="interactive-product" data-full-code="7898929035080" data-product="Forma 450g" aria-describedby="product-header" aria-label="Exibir detalhes para Forma 450g">Forma 450g</td>
+            <td data-label="Preço" aria-describedby="price-header">R$ 5,50</td>
           </tr>
-          <tr>
-            <td data-label="Cód." class="interactive-code" data-full-code="7898929035103" data-product="Leite 400g" tabindex="0" aria-label="Exibir código completo 7898929035103 para Leite 400g em overlay">103</td>
-            <td data-label="Prod.">Leite 400g</td>
-            <td data-label="Preço" class="interactive-price" data-product="Leite 400g" tabindex="0" aria-label="Exibir preço ampliado R$ 5,50 para Leite 400g em overlay">R$ 5,50</td>
+          <tr class="interactive-row" tabindex="0" aria-label="Exibir detalhes para Leite 400g">
+            <td data-label="Cód." data-full-code="7898929035103" aria-describedby="code-header">103</td>
+            <td data-label="Prod." class="interactive-product" data-full-code="7898929035103" data-product="Leite 400g" aria-describedby="product-header" aria-label="Exibir detalhes para Leite 400g">Leite 400g</td>
+            <td data-label="Preço" aria-describedby="price-header">R$ 5,50</td>
           </tr>
-          <tr>
-            <td data-label="Cód." class="interactive-code" data-full-code="7898929035219" data-product="Forma Integral 450g" tabindex="0" aria-label="Exibir código completo 7898929035219 para Forma Integral 450g em overlay">219</td>
-            <td data-label="Prod.">Forma Integral 450g</td>
-            <td data-label="Preço" class="interactive-price" data-product="Forma Integral 450g" tabindex="0" aria-label="Exibir preço ampliado R$ 6,50 para Forma Integral 450g em overlay">R$ 6,50</td>
+          <tr class="interactive-row" tabindex="0" aria-label="Exibir detalhes para Forma Integral 450g">
+            <td data-label="Cód." data-full-code="7898929035219" aria-describedby="code-header">219</td>
+            <td data-label="Prod." class="interactive-product" data-full-code="7898929035219" data-product="Forma Integral 450g" aria-describedby="product-header" aria-label="Exibir detalhes para Forma Integral 450g">Forma Integral 450g</td>
+            <td data-label="Preço" aria-describedby="price-header">R$ 6,50</td>
           </tr>
-          <tr>
-            <td data-label="Cód." class="interactive-code" data-full-code="7898929035196" data-product="Hamburgão 650g" tabindex="0" aria-label="Exibir código completo 7898929035196 para Hamburgão 650g em overlay">196</td>
-            <td data-label="Prod.">Hamburgão 650g</td>
-            <td data-label="Preço" class="interactive-price" data-product="Hamburgão 650g" tabindex="0" aria-label="Exibir preço ampliado R$ 7,50 para Hamburgão 650g em overlay">R$ 7,50</td>
+          <tr class="interactive-row" tabindex="0" aria-label="Exibir detalhes para Hamburgão 650g">
+            <td data-label="Cód." data-full-code="7898929035196" aria-describedby="code-header">196</td>
+            <td data-label="Prod." class="interactive-product" data-full-code="7898929035196" data-product="Hamburgão 650g" aria-describedby="product-header" aria-label="Exibir detalhes para Hamburgão 650g">Hamburgão 650g</td>
+            <td data-label="Preço" aria-describedby="price-header">R$ 7,50</td>
           </tr>
-          <tr>
-            <td data-label="Cód." class="interactive-code" data-full-code="7898929035288" data-product="Pic Nic 450g" tabindex="0" aria-label="Exibir código completo 7898929035288 para Pic Nic 450g em overlay">288</td>
-            <td data-label="Prod.">Pic Nic 450g</td>
-            <td data-label="Preço" class="interactive-price" data-product="Pic Nic 450g" tabindex="0" aria-label="Exibir preço ampliado R$ 7,20 para Pic Nic 450g em overlay">R$ 7,20</td>
+          <tr class="interactive-row" tabindex="0" aria-label="Exibir detalhes para Pic Nic 450g">
+            <td data-label="Cód." data-full-code="7898929035288" aria-describedby="code-header">288</td>
+            <td data-label="Prod." class="interactive-product" data-full-code="7898929035288" data-product="Pic Nic 450g" aria-describedby="product-header" aria-label="Exibir detalhes para Pic Nic 450g">Pic Nic 450g</td>
+            <td data-label="Preço" aria-describedby="price-header">R$ 7,20</td>
           </tr>
-          <tr>
-            <td data-label="Cód." class="interactive-code" data-full-code="7898929035301" data-product="Pic Nic Integral 450g" tabindex="0" aria-label="Exibir código completo 7898929035301 para Pic Nic Integral 450g em overlay">301</td>
-            <td data-label="Prod.">Pic Nic Integral 450g</td>
-            <td data-label="Preço" class="interactive-price" data-product="Pic Nic Integral 450g" tabindex="0" aria-label="Exibir preço ampliado R$ 7,70 para Pic Nic Integral 450g em overlay">R$ 7,70</td>
+          <tr class="interactive-row" tabindex="0" aria-label="Exibir detalhes para Pic Nic Integral 450g">
+            <td data-label="Cód." data-full-code="7898929035301" aria-describedby="code-header">301</td>
+            <td data-label="Prod." class="interactive-product" data-full-code="7898929035301" data-product="Pic Nic Integral 450g" aria-describedby="product-header" aria-label="Exibir detalhes para Pic Nic Integral 450g">Pic Nic Integral 450g</td>
+            <td data-label="Preço" aria-describedby="price-header">R$ 7,70</td>
           </tr>
-          <tr>
-            <td data-label="Cód." class="interactive-code" data-full-code="7898929035349" data-product="Hamb. Brioc. 285g" tabindex="0" aria-label="Exibir código completo 7898929035349 para Hamb. Brioc. 285g em overlay">349</td>
-            <td data-label="Prod.">Hamb. Brioc. 285g</td>
-            <td data-label="Preço" class="interactive-price" data-product="Hamb. Brioc. 285g" tabindex="0" aria-label="Exibir preço ampliado R$ 5,00 para Hamb. Brioc. 285g em overlay">R$ 5,00</td>
+          <tr class="interactive-row" tabindex="0" aria-label="Exibir detalhes para Hamb. Brioc. 285g">
+            <td data-label="Cód." data-full-code="7898929035349" aria-describedby="code-header">349</td>
+            <td data-label="Prod." class="interactive-product" data-full-code="7898929035349" data-product="Hamb. Brioc. 285g" aria-describedby="product-header" aria-label="Exibir detalhes para Hamb. Brioc. 285g">Hamb. Brioc. 285g</td>
+            <td data-label="Preço" aria-describedby="price-header">R$ 5,00</td>
           </tr>
-          <tr>
-            <td data-label="Cód." class="interactive-code" data-full-code="7898929035356" data-product="Mini Hamb. Brioc. 220g" tabindex="0" aria-label="Exibir código completo 7898929035356 para Mini Hamb. Brioc. 220g em overlay">356</td>
-            <td data-label="Prod.">Mini Hamb. Brioc. 220g</td>
-            <td data-label="Preço" class="interactive-price" data-product="Mini Hamb. Brioc. 220g" tabindex="0" aria-label="Exibir preço ampliado R$ 5,00 para Mini Hamb. Brioc. 220g em overlay">R$ 5,00</td>
+          <tr class="interactive-row" tabindex="0" aria-label="Exibir detalhes para Mini Hamb. Brioc. 220g">
+            <td data-label="Cód." data-full-code="7898929035356" aria-describedby="code-header">356</td>
+            <td data-label="Prod." class="interactive-product" data-full-code="7898929035356" data-product="Mini Hamb. Brioc. 220g" aria-describedby="product-header" aria-label="Exibir detalhes para Mini Hamb. Brioc. 220g">Mini Hamb. Brioc. 220g</td>
+            <td data-label="Preço" aria-describedby="price-header">R$ 5,00</td>
           </tr>
-          <tr>
-            <td data-label="Cód." class="interactive-code" data-full-code="7898929035370" data-product="Briochinho 340g" tabindex="0" aria-label="Exibir código completo 7898929035370 para Briochinho 340g em overlay">370</td>
-            <td data-label="Prod.">Briochinho 340g</td>
-            <td data-label="Preço" class="interactive-price" data-product="Briochinho 340g" tabindex="0" aria-label="Exibir preço ampliado R$ 5,00 para Briochinho 340g em overlay">R$ 5,00</td>
+          <tr class="interactive-row" tabindex="0" aria-label="Exibir detalhes para Briochinho 340g">
+            <td data-label="Cód." data-full-code="7898929035370" aria-describedby="code-header">370</td>
+            <td data-label="Prod." class="interactive-product" data-full-code="7898929035370" data-product="Briochinho 340g" aria-describedby="product-header" aria-label="Exibir detalhes para Briochinho 340g">Briochinho 340g</td>
+            <td data-label="Preço" aria-describedby="price-header">R$ 5,00</td>
           </tr>
-          <tr>
-            <td data-label="Cód." class="interactive-code" data-full-code="7898929035387" data-product="Forma Brioc. 330g" tabindex="0" aria-label="Exibir código completo 7898929035387 para Forma Brioc. 330g em overlay">387</td>
-            <td data-label="Prod.">Forma Brioc. 330g</td>
-            <td data-label="Preço" class="interactive-price" data-product="Forma Brioc. 330g" tabindex="0" aria-label="Exibir preço ampliado R$ 5,50 para Forma Brioc. 330g em overlay">R$ 5,50</td>
+          <tr class="interactive-row" tabindex="0" aria-label="Exibir detalhes para Forma Brioc. 330g">
+            <td data-label="Cód." data-full-code="7898929035387" aria-describedby="code-header">387</td>
+            <td data-label="Prod." class="interactive-product" data-full-code="7898929035387" data-product="Forma Brioc. 330g" aria-describedby="product-header" aria-label="Exibir detalhes para Forma Brioc. 330g">Forma Brioc. 330g</td>
+            <td data-label="Preço" aria-describedby="price-header">R$ 5,50</td>
           </tr>
-          <tr>
-            <td data-label="Cód." class="interactive-code" data-full-code="7898929035400" data-product="Árabe 400g" tabindex="0" aria-label="Exibir código completo 7898929035400 para Árabe 400g em overlay">400</td>
-            <td data-label="Prod.">Árabe 400g</td>
-            <td data-label="Preço" class="interactive-price" data-product="Árabe 400g" tabindex="0" aria-label="Exibir preço ampliado R$ 5,50 para Árabe 400g em overlay">R$ 5,50</td>
+          <tr class="interactive-row" tabindex="0" aria-label="Exibir detalhes para Árabe 400g">
+            <td data-label="Cód." data-full-code="7898929035400" aria-describedby="code-header">400</td>
+            <td data-label="Prod." class="interactive-product" data-full-code="7898929035400" data-product="Árabe 400g" aria-describedby="product-header" aria-label="Exibir detalhes para Árabe 400g">Árabe 400g</td>
+            <td data-label="Preço" aria-describedby="price-header">R$ 5,50</td>
           </tr>
-          <tr>
-            <td data-label="Cód." class="interactive-code" data-full-code="7898929035202" data-product="Farinha de Rosca 500g" tabindex="0" aria-label="Exibir código completo 7898929035202 para Farinha de Rosca 500g em overlay">202</td>
-            <td data-label="Prod.">Farinha de Rosca 500g</td>
-            <td data-label="Preço" class="interactive-price" data-product="Farinha de Rosca 500g" tabindex="0" aria-label="Exibir preço ampliado R$ 10,00 para Farinha de Rosca 500g em overlay">R$ 10,00</td>
+          <tr class="interactive-row" tabindex="0" aria-label="Exibir detalhes para Farinha de Rosca 500g">
+            <td data-label="Cód." data-full-code="7898929035202" aria-describedby="code-header">202</td>
+            <td data-label="Prod." class="interactive-product" data-full-code="7898929035202" data-product="Farinha de Rosca 500g" aria-describedby="product-header" aria-label="Exibir detalhes para Farinha de Rosca 500g">Farinha de Rosca 500g</td>
+            <td data-label="Preço" aria-describedby="price-header">R$ 10,00</td>
           </tr>
-          <tr>
-            <td data-label="Cód." class="interactive-code" data-full-code="7898929035264" data-product="Pizza 350g" tabindex="0" aria-label="Exibir código completo 7898929035264 para Pizza 350g em overlay">264</td>
-            <td data-label="Prod.">Pizza 350g</td>
-            <td data-label="Preço" class="interactive-price" data-product="Pizza 350g" tabindex="0" aria-label="Exibir preço ampliado R$ 7,00 para Pizza 350g em overlay">R$ 7,00</td>
+          <tr class="interactive-row" tabindex="0" aria-label="Exibir detalhes para Pizza 350g">
+            <td data-label="Cód." data-full-code="7898929035264" aria-describedby="code-header">264</td>
+            <td data-label="Prod." class="interactive-product" data-full-code="7898929035264" data-product="Pizza 350g" aria-describedby="product-header" aria-label="Exibir detalhes para Pizza 350g">Pizza 350g</td>
+            <td data-label="Preço" aria-describedby="price-header">R$ 7,00</td>
           </tr>
-          <tr>
-            <td data-label="Cód." class="interactive-code" data-full-code="7898929035127" data-product="Bolinho 330g" tabindex="0" aria-label="Exibir código completo 7898929035127 para Bolinho 330g em overlay">127</td>
-            <td data-label="Prod.">Bolinho 330g</td>
-            <td data-label="Preço" class="interactive-price" data-product="Bolinho 330g" tabindex="0" aria-label="Exibir preço ampliado R$ 6,00 para Bolinho 330g em overlay">R$ 6,00</td>
+          <tr class="interactive-row" tabindex="0" aria-label="Exibir detalhes para Bolinho 330g">
+            <td data-label="Cód." data-full-code="7898929035127" aria-describedby="code-header">127</td>
+            <td data-label="Prod." class="interactive-product" data-full-code="7898929035127" data-product="Bolinho 330g" aria-describedby="product-header" aria-label="Exibir detalhes para Bolinho 330g">Bolinho 330g</td>
+            <td data-label="Preço" aria-describedby="price-header">R$ 6,00</td>
           </tr>
-          <tr>
-            <td data-label="Cód." class="interactive-code" data-full-code="7898929035332" data-product="Bolo Inglês 360g" tabindex="0" aria-label="Exibir código completo 7898929035332 para Bolo Inglês 360g em overlay">332</td>
-            <td data-label="Prod.">Bolo Inglês 360g</td>
-            <td data-label="Preço" class="interactive-price" data-product="Bolo Inglês 360g" tabindex="0" aria-label="Exibir preço ampliado R$ 6,00 para Bolo Inglês 360g em overlay">R$ 6,00</td>
+          <tr class="interactive-row" tabindex="0" aria-label="Exibir detalhes para Bolo Inglês 360g">
+            <td data-label="Cód." data-full-code="7898929035332" aria-describedby="code-header">332</td>
+            <td data-label="Prod." class="interactive-product" data-full-code="7898929035332" data-product="Bolo Inglês 360g" aria-describedby="product-header" aria-label="Exibir detalhes para Bolo Inglês 360g">Bolo Inglês 360g</td>
+            <td data-label="Preço" aria-describedby="price-header">R$ 6,00</td>
           </tr>
-          <tr>
-            <td data-label="Cód." class="interactive-code" data-full-code="7898929035325" data-product="Bolo Sabor Fofo 500g" tabindex="0" aria-label="Exibir código completo 7898929035325 para Bolo Sabor Fofo 500g em overlay">325</td>
-            <td data-label="Prod.">Bolo Sabor Fofo 500g</td>
-            <td data-label="Preço" class="interactive-price" data-product="Bolo Sabor Fofo 500g" tabindex="0" aria-label="Exibir preço ampliado R$ 8,00 para Bolo Sabor Fofo 500g em overlay">R$ 8,00</td>
+          <tr class="interactive-row" tabindex="0" aria-label="Exibir detalhes para Bolo Sabor Fofo 500g">
+            <td data-label="Cód." data-full-code="7898929035325" aria-describedby="code-header">325</td>
+            <td data-label="Prod." class="interactive-product" data-full-code="7898929035325" data-product="Bolo Sabor Fofo 500g" aria-describedby="product-header" aria-label="Exibir detalhes para Bolo Sabor Fofo 500g">Bolo Sabor Fofo 500g</td>
+            <td data-label="Preço" aria-describedby="price-header">R$ 8,00</td>
           </tr>
         </tbody>
       </table>
@@ -902,18 +952,18 @@
     <button onclick="hideMegaphoneMessage()" aria-label="Fechar mensagem promocional">Fechar</button>
   </div>
 
-  <div id="code-price-overlay" class="code-price-overlay" role="alert" aria-live="polite" tabindex="0"></div>
+  <div id="product-overlay" class="product-overlay" role="dialog" aria-live="polite" tabindex="0"></div>
 
   <script>
     let volumeLevel = 0;
     const audio = document.getElementById('background-audio');
-    const audioSource = document.getElementById('audio-source');
     const waveform = document.getElementById('waveform');
     const playPauseBtn = document.getElementById('play-pause-btn');
     const hoverSound = document.getElementById('hover-sound');
     const clickSound = document.getElementById('click-sound');
     let isPlaying = false;
     let hasClicked = false;
+    let isTrackLoading = false;
     const tracks = [
       "https://raw.githubusercontent.com/gvitagula/site/refs/heads/main/aud/musica1.mp3",
       "https://raw.githubusercontent.com/gvitagula/site/refs/heads/main/aud/musica2.mp3",
@@ -921,231 +971,311 @@
     ];
     let currentTrackIndex = 0;
 
-    // Overlay handling
-    const overlay = document.getElementById('code-price-overlay');
+    const products = {
+      "7898929035141": { name: "Bisc. Champagne 200g", price: "R$ 3,75", image: "https://i.ibb.co/bRKK5bGv/15-Champgne200g.jpg" },
+      "7898929035028": { name: "Bisc. Champagne 250g", price: "R$ 4,10", image: "https://i.ibb.co/dsC9xz0s/16-Champgne250g.jpg" },
+      "7898929035011": { name: "Bisc. Cappuccino 250g", price: "R$ 4,50", image: "https://i.ibb.co/svPh13Wx/17-Cappuccino.jpg" },
+      "7898929035097": { name: "Bisc. Bola de Ouro 250g", price: "R$ 4,10", image: "https://i.ibb.co/nqMccMRh/18-Bola-De-Ouro.jpg" },
+      "7898929035363": { name: "Bisc. Sete Capas Doce 210g", price: "R$ 4,50", image: "https://i.ibb.co/JWqjDhVq/20-Sete-Capas-Doce.jpg" },
+      "7898929035110": { name: "Bisc. Sete Capas 250g", price: "R$ 4,50", image: "https://i.ibb.co/xtS1WPns/19-Sete-Capas-Sal.jpg" },
+      "7898929035073": { name: "Bisc. Sequilho 250g", price: "R$ 4,10", image: "https://i.ibb.co/zWTz227T/22-Sequilio.jpg" },
+      "7898929035295": { name: "Bisc. Delícia 250g", price: "R$ 4,10", image: "https://i.ibb.co/wNf22ddB/21-Del-cia.jpg" },
+      "7898929035431": { name: "Bisc. c/ Coco 120g", price: "R$ 4,00", image: "https://i.ibb.co/r23fjV48/25-Biscoito-Coco.jpg" },
+      "7898929035424": { name: "Bisc. de Goiaba 120g", price: "R$ 4,00", image: "https://i.ibb.co/wr4JwTmd/24-Biscoito-Goiaba.jpg" },
+      "7898929035394": { name: "Bisc. Polvilho 80g", price: "R$ 3,00", image: "https://i.ibb.co/fzXp062t/23-Peta.jpg" },
+      "7898929035042": { name: "Hamb. 450g", price: "R$ 5,50", image: "https://i.ibb.co/4Z458fsg/01-Humburguer.jpg" },
+      "7898929035035": { name: "Hot Dog 400g", price: "R$ 5,50", image: "https://i.ibb.co/fz9tnc87/02-Hotdog.jpg" },
+      "7898929035080": { name: "Forma 450g", price: "R$ 5,50", image: "https://i.ibb.co/4R82Qrhr/03-Forma.jpg" },
+      "7898929035103": { name: "Leite 400g", price: "R$ 5,50", image: "https://i.ibb.co/JRNjcqf9/04-Leite.jpg" },
+      "7898929035219": { name: "Forma Integral 450g", price: "R$ 6,50", image: "https://i.ibb.co/8g2y0rGL/05-Forma-integral.jpg" },
+      "7898929035196": { name: "Hamburgão 650g", price: "R$ 7,50", image: "https://i.ibb.co/TDN8ZRv0/06-Hamburgao.jpg" },
+      "7898929035288": { name: "Pic Nic 450g", price: "R$ 7,20", image: "https://i.ibb.co/p6TFCym6/07-Pic-Nic.jpg" },
+      "7898929035301": { name: "Pic Nic Integral 450g", price: "R$ 7,70", image: "https://i.ibb.co/Wpz5X2mr/08-Pic-Nic-Integral.jpg" },
+      "7898929035349": { name: "Hamb. Brioc. 285g", price: "R$ 5,00", image: "https://i.ibb.co/mrv9Dj60/09-Hamburguer-Brioche.jpg" },
+      "7898929035356": { name: "Mini Hamb. Brioc. 220g", price: "R$ 5,00", image: "https://i.ibb.co/yFZp0Nd2/10-Mini-Hamburguer-Brioche.jpg" },
+      "7898929035370": { name: "Briochinho 340g", price: "R$ 5,00", image: "https://i.ibb.co/Qv97G6Kb/11-Briochinho.jpg" },
+      "7898929035387": { name: "Forma Brioc. 330g", price: "R$ 5,50", image: "https://i.ibb.co/Lzd7dDdM/12-Forma-Brioche.jpg" },
+      "7898929035400": { name: "Árabe 400g", price: "R$ 5,50", image: "https://i.ibb.co/PzwjD7rv/14-Pao-Arabe.jpg" },
+      "7898929035202": { name: "Farinha de Rosca 500g", price: "R$ 10,00", image: "" },
+      "7898929035264": { name: "Pizza 350g", price: "R$ 7,00", image: "https://i.ibb.co/yF6Cbd0r/30-Pizza.jpg" },
+      "7898929035127": { name: "Bolinho 330g", price: "R$ 6,00", image: "https://i.ibb.co/KpMGd1SH/27-Bolinho.jpg" },
+      "7898929035332": { name: "Bolo Inglês 360g", price: "R$ 6,00", image: "https://i.ibb.co/mrjDfp4P/29-Bolo-Ingles.jpg" },
+      "7898929035325": { name: "Bolo Sabor Fofo 500g", price: "R$ 8,00", image: "https://i.ibb.co/WWrnb5TL/28-Bolo-Fofo.jpg" }
+    };
+
+    const overlay = document.getElementById('product-overlay');
     let overlayTimeout = null;
     let isOverlayVisible = false;
+    let currentOverlayCode = null;
 
-    function showOverlay(content, product, type) {
+    function showOverlay(fullCode, product, price, image, isClick = false) {
+      if (!fullCode || !product || !price) return;
       clearTimeout(overlayTimeout);
-      const prefix = type === 'code' ? 'Código:' : 'Preço:';
-      overlay.innerHTML = `<strong>${prefix}</strong> ${content} - <span class="product-name">${product}</span>`;
-      overlay.classList.add('show');
-      isOverlayVisible = true;
-      overlay.focus();
+      if (currentOverlayCode !== fullCode || !isOverlayVisible) {
+        const imageHtml = image ? `<img src="${image}" alt="${product}" onerror="this.style.display='none'">` : '';
+        overlay.innerHTML = `
+          <div class="product-overlay-content" role="dialog" aria-label="Detalhes do produto ${product}">
+            ${imageHtml}
+            <div class="product-name">${product}</div>
+            <div class="product-code">Código: ${fullCode}</div>
+            <div class="product-price">Preço: ${price}</div>
+            ${isClick ? '<button onclick="hideOverlay()" aria-label="Fechar overlay">Fechar</button>' : ''}
+          </div>
+        `;
+        overlay.classList.add('show');
+        isOverlayVisible = true;
+        currentOverlayCode = fullCode;
+        overlay.focus();
+      }
     }
 
     function hideOverlay() {
       clearTimeout(overlayTimeout);
       overlay.classList.remove('show');
-      overlay.innerHTML = '';
       isOverlayVisible = false;
+      currentOverlayCode = null;
+      overlay.innerHTML = '';
+      document.querySelector('.price-table').focus();
     }
 
-    function isMobile() {
-      return window.innerWidth <= 600;
+    function debounce(func, wait) {
+      let timeout;
+      return function executedFunction(...args) {
+        const later = () => {
+          clearTimeout(timeout);
+          func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+      };
     }
 
-    function handleCodeInteraction(event) {
-      const td = event.target;
-      const fullCode = td.dataset.fullCode;
-      const product = td.dataset.product;
-      if (isMobile()) {
-        playClickSound();
-        if (isOverlayVisible && overlay.innerHTML.includes(fullCode)) {
-          hideOverlay();
-        } else {
-          showOverlay(fullCode, product, 'code');
-          overlayTimeout = setTimeout(hideOverlay, 3000);
-        }
-      } else {
-        if (event.type === 'mouseover') {
-          playHoverSound();
-          showOverlay(fullCode, product, 'code');
-        } else if (event.type === 'mouseleave') {
-          hideOverlay();
-        }
+    const table = document.querySelector('.price-table');
+    table.addEventListener('mouseover', debounce((e) => {
+      const cell = e.target.closest('.interactive-product');
+      if (!cell) return;
+      const fullCode = cell.dataset.fullCode;
+      const product = cell.dataset.product;
+      const price = cell.parentElement.querySelector('td[data-label="Preço"]').textContent;
+      const productData = products[fullCode] || {};
+      const image = productData.image || '';
+      showOverlay(fullCode, product, price, image, false);
+    }, 200));
+
+    table.addEventListener('mouseout', (e) => {
+      if (!isOverlayVisible || !e.target.closest('.interactive-product')) return;
+      overlayTimeout = setTimeout(hideOverlay, 300);
+    });
+
+    table.addEventListener('click', (e) => {
+      const cell = e.target.closest('.interactive-product');
+      if (!cell) return;
+      e.preventDefault();
+      const fullCode = cell.dataset.fullCode;
+      const product = cell.dataset.product;
+      const price = cell.parentElement.querySelector('td[data-label="Preço"]').textContent;
+      const productData = products[fullCode] || {};
+      const image = productData.image || '';
+      showOverlay(fullCode, product, price, image, true);
+    });
+
+    table.addEventListener('keydown', (e) => {
+      const row = e.target.closest('.interactive-row');
+      if (!row) return;
+      if (e.key === 'Enter') {
+        const cell = row.querySelector('.interactive-product');
+        const fullCode = cell.dataset.fullCode;
+        const product = cell.dataset.product;
+        const price = row.querySelector('td[data-label="Preço"]').textContent;
+        const productData = products[fullCode] || {};
+        const image = productData.image || '';
+        showOverlay(fullCode, product, price, image, true);
+      } else if (e.key === 'ArrowDown') {
+        const nextRow = row.nextElementSibling;
+        if (nextRow) nextRow.focus();
+      } else if (e.key === 'ArrowUp') {
+        const prevRow = row.previousElementSibling;
+        if (prevRow) prevRow.focus();
       }
-    }
+    });
 
-    function handlePriceInteraction(event) {
-      const td = event.target;
-      const price = td.textContent;
-      const product = td.dataset.product;
-      if (isMobile()) {
-        playClickSound();
-        if (isOverlayVisible && overlay.innerHTML.includes(price)) {
-          hideOverlay();
-        } else {
-          showOverlay(price, product, 'price');
-          overlayTimeout = setTimeout(hideOverlay, 3000);
-        }
-      } else {
-        if (event.type === 'mouseover') {
-          playHoverSound();
-          showOverlay(price, product, 'price');
-        } else if (event.type === 'mouseleave') {
-          hideOverlay();
-        }
+    overlay.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' || e.key === 'Enter') {
+        hideOverlay();
       }
-    }
+    });
 
-    function handleKeydown(event, handler) {
-      if (event.key === 'Enter') {
-        event.preventDefault();
-        handler(event);
+    overlay.addEventListener('mouseover', () => {
+      clearTimeout(overlayTimeout);
+    });
+
+    overlay.addEventListener('mouseout', (e) => {
+      if (isOverlayVisible && !overlay.querySelector('button') && !e.relatedTarget?.closest('.product-overlay')) {
+        overlayTimeout = setTimeout(hideOverlay, 300);
       }
-    }
+    });
+
+    overlay.addEventListener('touchstart', (e) => {
+      if (!overlay.querySelector('button') && !e.target.closest('.product-overlay-content')) {
+        hideOverlay();
+      }
+    });
 
     function handleFirstClick() {
       if (!hasClicked) {
-        togglePlayPause();
         hasClicked = true;
+        document.getElementById('megaphone-message').style.display = 'block';
+        audio.play().catch(() => {
+          console.log('Autoplay bloqueado pelo navegador.');
+        });
+        document.body.removeEventListener('click', handleFirstClick);
       }
     }
 
     function playHoverSound() {
-      if (!hoverSound.paused) hoverSound.pause();
       hoverSound.currentTime = 0;
-      hoverSound.play().catch(error => console.error("Hover sound playback failed:", error));
+      hoverSound.play().catch(() => {});
     }
 
     function playClickSound() {
-      if (!clickSound.paused) clickSound.pause();
       clickSound.currentTime = 0;
-      clickSound.play().catch(error => console.error("Click sound playback failed:", error));
+      clickSound.play().catch(() => {});
     }
 
-    function changeVolume() {
-      volumeLevel = (volumeLevel + 1) % 4;
-      const volumeIcon = document.getElementById('volume-icon');
-      const muteIcon = volumeIcon.querySelector('.volume-mute');
-      const lowIcon = volumeIcon.querySelector('.volume-low');
-      const mediumIcon = volumeIcon.querySelector('.volume-medium');
-      const highIcon = volumeIcon.querySelector('.volume-high');
-      volumeIcon.classList.remove('mute', 'low', 'medium', 'high');
-      muteIcon.style.display = 'none';
-      lowIcon.style.display = 'none';
-      mediumIcon.style.display = 'none';
-      highIcon.style.display = 'none';
-      let newVolume;
-      if (volumeLevel === 0) {
-        volumeIcon.classList.add('low');
-        lowIcon.style.display = 'block';
-        newVolume = 0.3;
-      } else if (volumeLevel === 1) {
-        volumeIcon.classList.add('medium');
-        mediumIcon.style.display = 'block';
-        newVolume = 0.6;
-      } else if (volumeLevel === 2) {
-        volumeIcon.classList.add('high');
-        highIcon.style.display = 'block';
-        newVolume = 1.0;
-      } else {
-        volumeIcon.classList.add('mute');
-        muteIcon.style.display = 'block';
-        newVolume = 0.0;
-      }
-      audio.volume = newVolume;
-      hoverSound.volume = newVolume;
-      clickSound.volume = newVolume;
+    function hideMegaphoneMessage() {
+      document.getElementById('megaphone-message').style.display = 'none';
     }
 
     function togglePlayPause() {
+      if (isTrackLoading) return;
       if (isPlaying) {
         audio.pause();
-        playPauseBtn.innerHTML = '▶';
-        waveform.classList.remove('playing');
         isPlaying = false;
+        playPauseBtn.textContent = '▶';
+        waveform.classList.remove('playing');
       } else {
-        if (!audio.src || audio.src !== tracks[currentTrackIndex]) {
-          audio.src = tracks[currentTrackIndex];
-          audio.load();
-        }
-        audio.play().then(() => {
-          playPauseBtn.innerHTML = '⏸';
-          waveform.classList.add('playing');
-          isPlaying = true;
-        }).catch(error => {
-          console.error("Audio playback failed:", error);
-          currentTrackIndex = 0;
-          audio.src = tracks[0];
-          audio.load();
-          if (isPlaying) audio.play();
+        audio.play().catch(() => {
+          console.log('Autoplay bloqueado pelo navegador.');
         });
+        isPlaying = true;
+        playPauseBtn.textContent = '⏸';
+        waveform.classList.add('playing');
       }
     }
 
-    async function playTrack(index) {
+    function changeVolume() {
+      const volumeIcon = document.getElementById('volume-icon');
+      const volumeMute = volumeIcon.querySelector('.volume-mute');
+      const volumeLow = volumeIcon.querySelector('.volume-low');
+      const volumeMedium = volumeIcon.querySelector('.volume-medium');
+      const volumeHigh = volumeIcon.querySelector('.volume-high');
+
+      volumeLevel = (volumeLevel + 1) % 4;
+
+      if (volumeLevel === 0) {
+        audio.volume = 0;
+        volumeIcon.className = 'volume-icon mute';
+        volumeMute.style.display = 'block';
+        volumeLow.style.display = 'none';
+        volumeMedium.style.display = 'none';
+        volumeHigh.style.display = 'none';
+      } else if (volumeLevel === 1) {
+        audio.volume = 0.3;
+        volumeIcon.className = 'volume-icon low';
+        volumeMute.style.display = 'none';
+        volumeLow.style.display = 'block';
+        volumeMedium.style.display = 'none';
+        volumeHigh.style.display = 'none';
+      } else if (volumeLevel === 2) {
+        audio.volume = 0.6;
+        volumeIcon.className = 'volume-icon medium';
+        volumeMute.style.display = 'none';
+        volumeLow.style.display = 'none';
+        volumeMedium.style.display = 'block';
+        volumeHigh.style.display = 'none';
+      } else {
+        audio.volume = 1.0;
+        volumeIcon.className = 'volume-icon high';
+        volumeMute.style.display = 'none';
+        volumeLow.style.display = 'none';
+        volumeMedium.style.display = 'none';
+        volumeHigh.style.display = 'block';
+      }
+    }
+
+    function preloadTrack(url) {
       return new Promise((resolve) => {
-        audio.src = tracks[index];
-        audio.load();
-        audio.oncanplaythrough = () => resolve(true);
-        audio.onerror = () => resolve(false);
+        const tempAudio = new Audio(url);
+        tempAudio.preload = 'auto';
+        tempAudio.addEventListener('canplaythrough', () => resolve(), { once: true });
+        tempAudio.load();
       });
     }
 
     async function playPrevious() {
-      const newIndex = (currentTrackIndex - 1 + tracks.length) % tracks.length;
-      try {
-        await playTrack(newIndex);
-        if (isPlaying) {
-          await audio.play();
-          currentTrackIndex = newIndex;
-          waveform.classList.add('playing');
-          playPauseBtn.innerHTML = '⏸';
-        } else {
-          currentTrackIndex = newIndex;
-        }
-      } catch (error) {
-        console.error("Failed to load previous track:", error);
-      }
+      if (isTrackLoading) return;
+      isTrackLoading = true;
+      currentTrackIndex = (currentTrackIndex - 1 + tracks.length) % tracks.length;
+      audio.pause();
+      isPlaying = false;
+      playPauseBtn.textContent = '▶';
+      waveform.classList.remove('playing');
+      const source = document.getElementById('audio-source');
+      source.src = tracks[currentTrackIndex];
+      await preloadTrack(tracks[currentTrackIndex]);
+      audio.load();
+      audio.play().then(() => {
+        isPlaying = true;
+        playPauseBtn.textContent = '⏸';
+        waveform.classList.add('playing');
+        isTrackLoading = false;
+      }).catch(() => {
+        isTrackLoading = false;
+        console.log('Erro ao tocar a faixa anterior.');
+      });
     }
 
     async function playNext() {
-      const newIndex = (currentTrackIndex + 1) % tracks.length;
-      try {
-        await playTrack(newIndex);
-        if (isPlaying) {
-          await audio.play();
-          currentTrackIndex = newIndex;
-          waveform.classList.add('playing');
-          playPauseBtn.innerHTML = '⏸';
-        } else {
-          currentTrackIndex = newIndex;
-        }
-      } catch (error) {
-        console.error("Failed to load next track:", error);
-        currentTrackIndex = 0;
-        await playTrack(0);
-        if (isPlaying) audio.play();
-      }
+      if (isTrackLoading) return;
+      isTrackLoading = true;
+      currentTrackIndex = (currentTrackIndex + 1) % tracks.length;
+      audio.pause();
+      isPlaying = false;
+      playPauseBtn.textContent = '▶';
+      waveform.classList.remove('playing');
+      const source = document.getElementById('audio-source');
+      source.src = tracks[currentTrackIndex];
+      await preloadTrack(tracks[currentTrackIndex]);
+      audio.load();
+      audio.play().then(() => {
+        isPlaying = true;
+        playPauseBtn.textContent = '⏸';
+        waveform.classList.add('playing');
+        isTrackLoading = false;
+      }).catch(() => {
+        isTrackLoading = false;
+        console.log('Erro ao tocar a próxima faixa.');
+      });
     }
 
-    audio.addEventListener('ended', () => {
+    audio.addEvent exponentialRampToValueAtTime('ended', () => {
       playNext();
     });
 
-    audio.volume = 0.3;
-    hoverSound.volume = 0.3;
-    clickSound.volume = 0.3;
-    audio.src = tracks[currentTrackIndex];
-    audio.load();
-
-    function toggleDropdown(event, tabName) {
-      event.preventDefault();
+    function toggleDropdown(event, menu) {
       event.stopPropagation();
-      const dropdown = event.currentTarget.parentElement;
+      const dropdown = event.target.closest('.dropdown');
       const isOpen = dropdown.classList.contains('open');
       document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('open'));
-      if (!isOpen) dropdown.classList.add('open');
-      playClickSound();
+      if (!isOpen) {
+        dropdown.classList.add('open');
+      }
     }
 
-    function setActiveTab(tabName) {
+    function setActiveTab(tab) {
       document.querySelectorAll('.dropdown-content a').forEach(link => {
         link.classList.remove('active');
-        if (link.href.includes(tabName)) {
+        if (link.getAttribute('onclick').includes(tab)) {
           link.classList.add('active');
         }
       });
@@ -1157,43 +1287,7 @@
       }
     });
 
-    function hideMegaphoneMessage() {
-      document.getElementById('megaphone-message').style.display = 'none';
-    }
-
     document.addEventListener('DOMContentLoaded', () => {
-      let visitCount = parseInt(localStorage.getItem('visitCount') || '1000', 10);
-      visitCount++;
-      localStorage.setItem('visitCount', visitCount);
-      document.getElementById('visit-count').textContent = visitCount;
-      document.getElementById('megaphone-message').style.display = 'block';
-      setTimeout(hideMegaphoneMessage, 5000);
-      setActiveTab('precos');
-
-      // Initialize interactive code and price cells
-      const codeCells = document.querySelectorAll('.interactive-code');
-      const priceCells = document.querySelectorAll('.interactive-price');
-
-      codeCells.forEach(cell => {
-        cell.setAttribute('aria-label', `Exibir código completo ${cell.dataset.fullCode} para ${cell.dataset.product} em overlay`);
-        if (!isMobile()) {
-          cell.addEventListener('mouseover', handleCodeInteraction);
-          cell.addEventListener('mouseleave', handleCodeInteraction);
-        }
-        cell.addEventListener('click', handleCodeInteraction);
-        cell.addEventListener('keydown', (e) => handleKeydown(e, handleCodeInteraction));
-      });
-
-      priceCells.forEach(cell => {
-        cell.setAttribute('aria-label', `Exibir preço ampliado ${cell.textContent} para ${cell.dataset.product} em overlay`);
-        if (!isMobile()) {
-          cell.addEventListener('mouseover', handlePriceInteraction);
-          cell.addEventListener('mouseleave', handlePriceInteraction);
-        }
-        cell.addEventListener('click', handlePriceInteraction);
-        cell.addEventListener('keydown', (e) => handleKeydown(e, handlePriceInteraction));
-      });
+      table.focus();
     });
   </script>
-</body>
-</html>
