@@ -677,7 +677,8 @@
             </div>
             <span class="control-btn" id="next-btn" onclick="playClickSound(); playNext()" onmouseover="playHoverSound()" aria-label="Tocar próxima faixa" tabindex="0" onkeydown="if(event.key === 'Enter') { playClickSound(); playNext(); }">⏭</span>
           </div>
-          <span class="volume-icon low" id="volume-icon" onclick="playClickSound(); changeVolume()" onmouseover="playHoverSound()" aria-label="Ajustar volume" tabindex="0" onkeydown="if(event.key === 'Enter') { playClickSound(); changeVolume(); }">
+          <span class="volume-icon low" id="volume-icon" onclick="playClickSound(); changeVolume
+            ()" onmouseover="playHoverSound()" aria-label="Ajustar volume" tabindex="0" onkeydown="if(event.key === 'Enter') { playClickSound(); changeVolume(); }">
             <svg class="volume-mute" viewBox="0 0 24 24" style="display: none;">
               <path d="M3 9v6h4l5 5V4L7 9H3zm11 0l3.5 3.5L14 15V9zm5.5 3l-2.5-2.5L19.5 7l2.5 2.5L19.5 12z"/>
             </svg>
@@ -696,7 +697,7 @@
     </header>
     <div class="nav-menu" role="navigation" aria-label="Menu principal">
       <a class="nav-item" href="https://gvitagula.github.io/site/" onclick="playClickSound()" onmouseover="playHoverSound()" role="tab" aria-selected="false">Página Principal</a>
-      <a class="nav-item" href="https://gvitagula.github.io/site/quemsomos/" onclick="playClickSound()" onmouseover="playHoverSound()" role="tab" aria-selected="false">Quem Somos</a>
+      <a class="nav-item" href="https://gvitagula.github.io/quemsomos/" onclick="playClickSound()" onmouseover="playHoverSound()" role="tab" aria-selected="false">Quem Somos</a>
       <div class="nav-item dropdown" role="tab" aria-selected="true">
         <span class="dropdown-toggle" onclick="playClickSound(); toggleDropdown(event, 'produtos')" onmouseover="playHoverSound()">Produtos</span>
         <div class="dropdown-content">
