@@ -401,7 +401,7 @@
       border: 2px solid #ff6f61;
       border-radius: 10px;
       font-family: 'Poppins', Arial, sans-serif;
-      font-size: 2.2em;
+      font-size: 1.8em;
       z-index: 10001;
       text-align: center;
       opacity: 0;
@@ -416,20 +416,23 @@
       align-items: center;
     }
     .code-price-overlay img {
-      width: 350px;
+      width: 370px;
       max-width: 90%;
       border-radius: 10px;
       margin-bottom: 10px;
     }
-    .code-price-overlay strong {
-      font-weight: 600;
-    }
     .code-price-overlay .product-name {
-      font-size: 1.2em;
+      font-size: 1em;
       margin: 5px 0;
     }
     .code-price-overlay .price {
-      font-size: 1em;
+      font-size: 0.9em;
+    }
+    .code-price-overlay .code {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.8em;
+      margin-top: 5px;
+      color: #d0d0d0;
     }
     .code-price-overlay.show {
       opacity: 1;
@@ -634,6 +637,9 @@
       }
       .code-price-overlay .price {
         font-size: 1em;
+      }
+      .code-price-overlay .code {
+        font-size: 0.7em;
       }
       .price-table .interactive-row:hover {
         pointer-events: none;
@@ -964,8 +970,8 @@
 
       if (td.classList.contains('product-name')) {
         const content = imageUrl ?
-          `<img src="${imageUrl}" alt="${productName}" /><span class="product-name">${productName}</span><span class="price">${price}</span>` :
-          `<span class="product-name">${productName}</span><span class="price">${price}</span>`;
+          `<img src="${imageUrl}" alt="${productName}" /><span class="product-name">${productName}</span><span class="price">${price}</span><span class="code"><strong>Código:</strong> ${fullCode}</span>` :
+          `<span class="product-name">${productName}</span><span class="price">${price}</span><span class="code"><strong>Código:</strong> ${fullCode}</span>`;
         const key = `product-${productName}`;
         
         if (isMobile()) {
