@@ -1,4 +1,43 @@
-<!DOCTYPE html>
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
@@ -408,7 +447,6 @@
       visibility: hidden;
       transition: opacity 0.3s ease, visibility 0.3s ease;
       max-width: 95%;
-      word-break: break-all;
       line-height: 1.5;
       display: flex;
       flex-direction: column;
@@ -416,10 +454,13 @@
       align-items: center;
     }
     .code-price-overlay img {
-      width: 370px;
-      max-width: 90%;
+      width: 350px;
       border-radius: 10px;
       margin-bottom: 10px;
+      transition: transform 0.2s ease;
+    }
+    .code-price-overlay img:hover {
+      transform: scale(1.1);
     }
     .code-price-overlay .product-name {
       font-size: 1em;
@@ -430,9 +471,10 @@
     }
     .code-price-overlay .code {
       font-family: 'Arial', sans-serif;
-      font-size: 0.8em;
+      font-size: 0.7em;
       margin-top: 5px;
       color: #d0d0d0;
+      white-space: nowrap;
     }
     .code-price-overlay.show {
       opacity: 1;
@@ -632,14 +674,20 @@
         font-size: 1.4em;
         padding: 15px;
       }
+      .code-price-overlay img {
+        width: 250px;
+      }
+      .code-price-overlay img:hover {
+        transform: scale(1.1);
+      }
       .code-price-overlay .product-name {
-        font-size: 1.1em;
+        font-size: 0.9em;
       }
       .code-price-overlay .price {
-        font-size: 1em;
+        font-size: 0.8em;
       }
       .code-price-overlay .code {
-        font-size: 0.7em;
+        font-size: 0.6em;
       }
       .price-table .interactive-row:hover {
         pointer-events: none;
@@ -677,8 +725,7 @@
             </div>
             <span class="control-btn" id="next-btn" onclick="playClickSound(); playNext()" onmouseover="playHoverSound()" aria-label="Tocar próxima faixa" tabindex="0" onkeydown="if(event.key === 'Enter') { playClickSound(); playNext(); }">⏭</span>
           </div>
-          <span class="volume-icon low" id="volume-icon" onclick="playClickSound(); changeVolume
-            ()" onmouseover="playHoverSound()" aria-label="Ajustar volume" tabindex="0" onkeydown="if(event.key === 'Enter') { playClickSound(); changeVolume(); }">
+          <span class="volume-icon low" id="volume-icon" onclick="playClickSound(); changeVolume()" onmouseover="playHoverSound()" aria-label="Ajustar volume" tabindex="0" onkeydown="if(event.key === 'Enter') { playClickSound(); changeVolume(); }">
             <svg class="volume-mute" viewBox="0 0 24 24" style="display: none;">
               <path d="M3 9v6h4l5 5V4L7 9H3zm11 0l3.5 3.5L14 15V9zm5.5 3l-2.5-2.5L19.5 7l2.5 2.5L19.5 12z"/>
             </svg>
@@ -691,7 +738,6 @@
             <svg class="volume-high" viewBox="0 0 24 24" style="display: none;">
               <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
             </svg>
-            
           </span>
         </div>
       </div>
@@ -942,7 +988,7 @@
     }
 
     function hideOverlay() {
-      clearTimeout(overlayTimeout);
+      clearTimeout(overflowTimeout);
       overlay.classList.remove('show');
       overlay.innerHTML = '';
       isOverlayVisible = false;
